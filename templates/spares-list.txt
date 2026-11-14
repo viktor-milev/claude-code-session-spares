@@ -1,7 +1,10 @@
 # Spares list for the <Role> seat of <Project>
 # One line per spare, in the order they will be woken.
 # Fields, separated by " | ": number | session id | title | state
-# States: waiting, used, failed
+# States: waiting, used, failed, archived
 # The sitting session wakes the first line whose state is "waiting".
+# Keep the list at <N> waiting spares: two for a role that hands over often, one for a rare one.
+# Each new seat archives its predecessor and starts one new spare, which is appended here.
 1 | session-id-1 | Spare 1 - <Role> | used
 2 | session-id-2 | Spare 2 - <Role> | waiting
+3 | session-id-3 | Spare 3 - <Role> | waiting

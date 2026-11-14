@@ -6,7 +6,7 @@ Replace `<N>`, `<Role>`, `<Project>` and the paths before giving it to the user.
 
 ---
 
-Start <N> spares for the <Role> seat.
+Start <N> spares for the <Role> seat. <N> is two for a role that hands over often, one for a rare one. After this, each new seat archives its predecessor and starts one spare itself.
 
 - Start <N> new sessions with your own model, effort and permission mode.
 - Title them "Spare 1 - <Role>" to "Spare <N> - <Role>".

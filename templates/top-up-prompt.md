@@ -2,6 +2,8 @@
 
 The user types this into the sitting session, at the desktop app itself, for example each evening. It must be typed at the desktop for the same reason as the start prompt.
 
+With the chain the list refills itself as seats pass. Use this only when the list has run dry or the seat sent a "Top up the spares" notification.
+
 The short form is enough once the steps are in the role's standing instructions:
 
 ---

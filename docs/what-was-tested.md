@@ -23,6 +23,7 @@ All sessions in these tests ran in the same permission mode (auto).
 ## What was not proven
 
 - A spare that waited longer than six hours before it was woken.
+- The chain: a woken spare archiving its predecessor and starting and detaching a replacement spare on the turn the wake message began. The app starts sessions only on a turn the user typed (test 2), so the replacement step may be refused. Archiving was not tested on that turn either. Run the dry run below, extended as described, before relying on it.
 - Starting more than eight spares in one turn.
 - Windows. Success there is a user report only.
 - Sessions in different permission modes. Messages between them can be held for approval, so this setup avoids the case rather than testing it.
@@ -36,6 +37,7 @@ This proves, on your own machine and app version, the rule the technique rests o
 2. **Wait.** An hour or more makes the test meaningful. Overnight is better.
 3. **Wake it from another session on a turn you did not type.** For example, ask a session to set a short timer or wait on a background command, and to message `Spare test` when that finishes: "You are woken for the test. Run your brief."
 4. **Check the results.** The sender should receive a message with the answer `4` and a `git status` summary. In `Spare test`, confirm that the sub-agent ran and that Remote Control is still on, if you use it.
-5. **Clean up.** Archive `Spare test`.
+5. **To check the chain,** also give the throwaway session this to do once it has answered: start one new session titled `Spare test 2` with the same brief, detach it, then archive the session that woke it. Note which of these the app allows and which it refuses, with the refusal text.
+6. **Clean up.** Archive `Spare test` and `Spare test 2`.
 
 If step 3 or 4 fails, the technique will not work on your setup as described. Note the exact refusal text and do not work around it.

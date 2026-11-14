@@ -19,7 +19,7 @@ Hand over when your context window is near full, or when the user asks.
 
    > You are my successor as <Role>. Your hand-over letter is at `<path to hand-over letter>`. Seat yourself by your brief and confirm to me when you are seated.
 
-5. **Mark it used.** Set that entry's state to `used` in the list and save it.
+5. **Mark it used.** Set that entry's state to `used` in the list and save it. The woken spare will archive you once it has seated.
 6. **Wait for the confirmation.** When the spare confirms it has seated, stop. Take no further action in the role.
 
 ## If something goes wrong
@@ -27,4 +27,5 @@ Hand over when your context window is near full, or when the user asks.
 - **No confirmation within ten minutes:** set that entry's state to `failed`, then repeat steps 4 to 6 with the next `waiting` entry.
 - **The message is held for approval:** the permission modes differ. Treat it as failed and wake the next spare. Note it in the letter for the user.
 - **No spare is left:** propose a new session to the user in the usual way, and notify them that the spares are used up. This is the same as working without spares.
+- **Optional notification:** the seat that takes over archives you and starts a replacement spare (see the seating steps), so the list refills itself. If the list ever falls below its number, the seat may send the user one notification with the action "Top up the spares". It sends it only then.
 - **The app refuses an action:** report the refusal text. Do not work around it.

@@ -12,16 +12,16 @@ Follow these steps in order. Ask the user where a step says so. Do not skip the 
    - Which long-running roles need spares? A role is a standing job one session holds at a time, such as "Coordinator" or "Maintainer".
    - About how many hand-overs a day does each role see? If they do not know, ask how many hours a session in that role lasts before it fills.
 
-   Size each list from the answer: hand-overs per day plus a margin. A session that fills in three to four hours needs about eight spares for a day.
+   Size each list from the answer, and keep it small: two waiting spares for a role that hands over often, one for a role that hands over rarely. The chain refills the list as seats pass, so do not size it for a whole day. Every waiting spare is a running process of about 200 MB.
 
 3. **Adapt the templates into the user's project.** Use the project's own conventions for where such files live. Look at how the project already stores instructions, checklists and state before you add anything. For each role, create:
    - a spares list file, from [templates/spares-list.txt](templates/spares-list.txt);
    - a hand-over letter location, from [templates/handover-letter.md](templates/handover-letter.md);
    - the waiting brief, from [templates/spare-brief.md](templates/spare-brief.md).
 
-   Replace every placeholder (`<Project>`, `<Role>`, `<N>`, paths). Remove what does not fit the project.
+   Replace every placeholder (`<Project>`, `<Role>`, `<N>`, paths). `<N>` is the list's number: one or two. Remove what does not fit the project.
 
-4. **Add the hand-over and seating steps to each role's standing instructions.** Use [templates/handover-steps.md](templates/handover-steps.md) and [templates/seating-steps.md](templates/seating-steps.md). Put them where a session in that role reads its duties, for example the project's instruction file or the role's checklist. Add the naming rule. If any script finds a seat by its session title, make it match the bare name `<Project> <Role>`.
+4. **Add the hand-over and seating steps to each role's standing instructions.** Use [templates/handover-steps.md](templates/handover-steps.md) and [templates/seating-steps.md](templates/seating-steps.md). Put them where a session in that role reads its duties, for example the project's instruction file or the role's checklist. The seating steps carry the chain: the new seat archives its predecessor and starts one new spare. Add the naming rule. If any script finds a seat by its session title, make it match the bare name `<Project> <Role>`.
 
 5. **Ask the user to type the start prompt at the desktop.** Give them the filled-in text from [templates/start-spares-prompt.md](templates/start-spares-prompt.md). Tell them to type it into the sitting session for that role, at the desktop app itself, not from a phone.
 
@@ -32,17 +32,18 @@ Follow these steps in order. Ask the user where a step says so. Do not skip the 
    - Each spare is titled `Spare <n> - <Role>`.
    - Each spare is detached to top level.
    - Each spare runs in the same permission mode as the sitting session.
+   - The list is `<N>` entries long, not longer.
 
    Report anything that does not match. Do not fix it by working around an app refusal.
 
 7. **Offer the dry-run check** in [docs/what-was-tested.md](docs/what-was-tested.md). It proves, on the user's own machine and app version, that a waiting session can be woken by another session and can work on that woken turn. Run it only if the user agrees.
 
-8. **Tell the user their recurring step.** Give them the filled-in text from [templates/top-up-prompt.md](templates/top-up-prompt.md). They type it at the desk, for example each evening.
+8. **Tell the user their recurring step.** With the chain, the list refills itself, so they need it only after the list has run dry or an optional "Top up the spares" notification arrives. Give them the filled-in text from [templates/top-up-prompt.md](templates/top-up-prompt.md). They type it at the desk.
 
 ## Safety
 
 - **Do not work around the app's refusals.** If the app refuses to start a session, rename a title, or deliver a message, report the refusal text to the user. Do not try another route to the same effect.
 - **Do not add or change permission rules or settings yourself.** If a step seems to need a new permission, tell the user what it is and why, and let them decide.
-- **Start nothing the user did not ask for.** Create spares only on the user's own typed request, in the number they agreed.
+- **Start nothing the user did not ask for.** Create spares only on the user's own typed request, in the number they agreed. The chain's replacement spare replaces the seat's own spare, one for one. It never grows the list past the agreed number.
 - **Adapt the templates; do not paste them blindly.** They are starting points. Match the project's file layout, naming and tone. Remove steps that do not apply.
 - App behaviour can change without notice. If what you observe differs from [docs/how-it-works.md](docs/how-it-works.md), trust what you observe and tell the user.
